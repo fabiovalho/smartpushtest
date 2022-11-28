@@ -1,12 +1,12 @@
 import './App.css';
-import './GetData';
-import Modal from './Modal';
+import './provider/GetData';
+import Modal from './components/Modal';
 import React, { useState, useEffect } from 'react';
+import SearchBar from './components/SearchBar';
 
 function App() {
 
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const [data, setData] = useState([]);
@@ -36,24 +36,7 @@ function App() {
     <div className="App">
       <Modal show={handleShow}>
       </Modal>
-      <table>
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>lastname</th>
-            <th>firstname</th>
-            <th>age</th>
-            <th>city</th>
-            <th>address</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map(row =>
-          <tr>
-            {Object.values(row).map(key => <td>{key}</td>)}
-          </tr>)}
-        </tbody>
-      </table>
+      <SearchBar data={data}/>
     </div>
   );
 }
