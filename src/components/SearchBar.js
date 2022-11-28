@@ -28,7 +28,7 @@ return <div>
     placeholder="Search here"
     onChange={handleChange}
     value={input} />
-    <Table data={table} />
+    <Table data={table.length > 0 ? table : data} />
 </div>
 
 };
